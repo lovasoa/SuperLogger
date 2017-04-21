@@ -43,11 +43,11 @@ public class SystemInfo
 
     public String toString() {
         return Json.createObjectBuilder()
-                 .add("cpu", cpu())
-                 .add("memory", memory())
-                 .add("computer", computerName())
-                 .add("ip", ip())
-                 .build()
-                 .toString();
+            .add("cpu", cpu())
+            .add("memory", memory())
+            .add("computer", computerName())
+            .add("ip", ip())
+            .build()
+            .toString();
     }
 }
