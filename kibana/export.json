@@ -1,0 +1,103 @@
+[
+  {
+    "_id": "7241e5a0-26ca-11e7-9884-9d94c5a74ce7",
+    "_type": "dashboard",
+    "_source": {
+      "title": "System monitoring",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"0daefab0-26ca-11e7-9884-9d94c5a74ce7\",\"panelIndex\":1,\"row\":1,\"size_x\":7,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"388a3ae0-26c7-11e7-9884-9d94c5a74ce7\",\"panelIndex\":2,\"row\":4,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":7,\"id\":\"91a7d6e0-26c8-11e7-9884-9d94c5a74ce7\",\"panelIndex\":3,\"row\":4,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"e35c1370-26c3-11e7-b1d5-e3dc1041c073\",\"panelIndex\":4,\"row\":7,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":7,\"id\":\"c549a440-26c5-11e7-b1d5-e3dc1041c073\",\"panelIndex\":5,\"row\":7,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"size_x\":5,\"size_y\":3,\"panelIndex\":6,\"type\":\"visualization\",\"id\":\"f9949800-26c4-11e7-b1d5-e3dc1041c073\",\"col\":8,\"row\":1}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-4\":{\"vis\":{\"legendOpen\":false}},\"P-5\":{\"vis\":{\"legendOpen\":false}}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"highlightAll\":true,\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "e35c1370-26c3-11e7-b1d5-e3dc1041c073",
+    "_type": "visualization",
+    "_source": {
+      "title": "CPU usage over time",
+      "visState": "{\"title\":\"CPU usage over time\",\"type\":\"area\",\"params\":{\"addLegend\":true,\"addTimeMarker\":true,\"addTooltip\":true,\"defaultYExtents\":false,\"interpolate\":\"cardinal\",\"legendPosition\":\"right\",\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"times\":[]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"cpu\",\"customLabel\":\"CPU usage\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"monitor\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "f9949800-26c4-11e7-b1d5-e3dc1041c073",
+    "_type": "visualization",
+    "_source": {
+      "title": "Computers",
+      "visState": "{\"title\":\"Computers\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":17,\"maxFontSize\":77,\"hideLabel\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"cpu\",\"customLabel\":\"Average CPU usage for the computer\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"computer.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"monitor\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"index\":\"monitor\",\"key\":\"computer.keyword\",\"value\":\"ordophir\",\"disabled\":false,\"negate\":false,\"alias\":null},\"query\":{\"match\":{\"computer.keyword\":{\"query\":\"ordophir\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "388a3ae0-26c7-11e7-9884-9d94c5a74ce7",
+    "_type": "visualization",
+    "_source": {
+      "title": "Average CPU usage",
+      "visState": "{\"title\":\"Average CPU usage\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"cpu\",\"customLabel\":\"Average CPU usage\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"monitor\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "c549a440-26c5-11e7-b1d5-e3dc1041c073",
+    "_type": "visualization",
+    "_source": {
+      "title": "Free memory over time",
+      "visState": "{\"title\":\"Free memory over time\",\"type\":\"area\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"scale\":\"linear\",\"interpolate\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"memory\",\"customLabel\":\"Available memory\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"Time\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"monitor\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "0daefab0-26ca-11e7-9884-9d94c5a74ce7",
+    "_type": "visualization",
+    "_source": {
+      "title": "Explanation",
+      "visState": "{\"aggs\":[],\"listeners\":{},\"params\":{\"markdown\":\"# System monitor\\n\\nThe **available memory** and **cpu usage** is measured every second on the monitored computers.\"},\"title\":\"Explanation\",\"type\":\"markdown\"}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "91a7d6e0-26c8-11e7-9884-9d94c5a74ce7",
+    "_type": "visualization",
+    "_source": {
+      "title": "Average free memory",
+      "visState": "{\"title\":\"Average free memory\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"memory\",\"customLabel\":\"Average free memory\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"monitor\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]
