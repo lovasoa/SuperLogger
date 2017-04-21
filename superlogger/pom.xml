@@ -27,7 +27,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.github.lovasoa.superlogger.App</mainClass>
+              <mainClass>com.github.lovasoa.superlogger.TCPServer</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
