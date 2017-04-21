@@ -4,3 +4,6 @@ Log system information using logstash, store the information on ElasticSearch, a
 ## Screenshot
 #### The dashboard
 ![dashboard screenshot](images/kibana-screenshot.png)
+
+## Architecture
+![architecture schema](images/architecture-schema.svg)
