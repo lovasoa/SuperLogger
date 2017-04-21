@@ -38,4 +38,11 @@ public class SystemInfo
             return "unknown";
         }
     }
+
+    public String toString() {
+        return "cpu: " + cpu() +
+            "\nmemory: " + memory() +
+            "\ncomputer: " + computerName() +
+            "\nip: " + ip();
+    }
 }
