@@ -5,12 +5,12 @@ Log system information using logstash, store the information on ElasticSearch, a
 ### Архитектура
 #### Агент
 Агент реализован на языке java. Он состоит из двух файла:
- - `SystemInfo.java` Простой класс который умеет собирать нужные данные.
- - `TCPServer.java` очен простой сервер. При соединении клиента, он начинает отправлять ему
+ - [`SystemInfo.java`](superlogger/src/main/java/SystemInfo.java) Простой класс который умеет собирать нужные данные.
+ - [`TCPServer.java`](superlogger/src/main/java/TCPServer.java) очен простой сервер. При соединении клиента, он начинает отправлять ему
  каждую секунду имя ПК, IP-адрес, загрузку ЦП и загрузку ОЗУ, в формате JSON.
 
 #### Посредник
-Посредник - logstash. Он запускается контайнере docker, и читает свою конфигурацию в файле `tcp2elastic.conf`.
+Посредник - logstash. Он запускается контайнере docker, и читает свою конфигурацию в файле [`tcp2elastic.conf`](logstash/pipeline/tcp2elastic.conf).
 
 #### Сервер хранения и обработки данных
 Сервер - ElasticSearch
