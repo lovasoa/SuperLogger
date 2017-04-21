@@ -7,3 +7,6 @@ Log system information using logstash, store the information on ElasticSearch, a
 
 ## Architecture
 ![architecture schema](images/architecture-schema.png)
+
+## Class diagram
+![class diagram](images/class-diagram.png)
