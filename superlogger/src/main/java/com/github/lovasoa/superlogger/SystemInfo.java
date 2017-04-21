@@ -6,6 +6,8 @@ import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import javax.json.*;
+
 public class SystemInfo 
 {
     OperatingSystemMXBean osBean;
@@ -40,9 +42,12 @@ public class SystemInfo
     }
 
     public String toString() {
-        return "cpu: " + cpu() +
-            "\nmemory: " + memory() +
-            "\ncomputer: " + computerName() +
-            "\nip: " + ip();
+        return Json.createObjectBuilder()
+                 .add("cpu", cpu())
+                 .add("memory", memory())
+                 .add("computer", computerName())
+                 .add("ip", ip())
+                 .build()
+                 .toString();
     }
 }
