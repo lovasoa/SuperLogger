@@ -16,10 +16,11 @@ class TCPServer
       DataOutputStream out = new DataOutputStream(conn.getOutputStream());
 
       boolean isOpen = true;
+      SystemInfo info = new SystemInfo();
       String response;
       while (isOpen) {
         try {
-          out.writeBytes(new SystemInfo() + "\n");
+          out.writeBytes(info.toString() + "\n");
         } catch(SocketException e) {
           System.err.println(e);
           isOpen = false;
